@@ -1,0 +1,8 @@
+{
+  "createdAt": "createdAt",
+  "email": "Email",
+  "role": "Role",
+  "username": "Username",
+  "phone": "Phone",
+  "avatar": "Profile avatar"
+}
