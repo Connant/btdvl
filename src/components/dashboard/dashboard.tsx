@@ -34,11 +34,17 @@ export default function Dashboard(): JSX.Element {
     dispatch(logoutAction());
   };
 
+  //
+  //  Лучше выносить в отдельный компонент sidebar,
+  //  а то получается очень нагроможденный компонент. Тогда будет читабельнее и чище.
+  //  Так же лучше вынести в отдельный компонент sidebar-item.
+  //
+
   return (
     <div className={styles.dashboard}>
       <section className={styles.sectionMenu}>
         <ul className={styles.listRadio}>
-          <li className={styles.itemRadio}>
+          <li className={styles.itemRadio}> // 1 Также вынести в отдельный компонент Radio и передавать в него пропсы
             <input
               className={styles.input}
               type="radio"
@@ -49,7 +55,7 @@ export default function Dashboard(): JSX.Element {
               onChange={() => setChecked("id_1")}
             ></input>
             <label className={checked === "id_1" ? styles.labelActive : styles.label} htmlFor="id_1">
-              <svg
+              <svg // import {ReactComponent as Icon} from "assets/icon.svg";
                 width="44"
                 height="44"
                 viewBox="0 0 44 44"
@@ -63,7 +69,7 @@ export default function Dashboard(): JSX.Element {
               </svg>
             </label>
           </li>
-          <li className={styles.itemRadio}>
+          <li className={styles.itemRadio}> // 2
             <input
             className={styles.input}
               type="radio"
@@ -87,7 +93,7 @@ export default function Dashboard(): JSX.Element {
               </svg>
             </label>
           </li>
-          <li className={styles.itemRadio}>
+          <li className={styles.itemRadio}> // 3
             <input
             className={styles.input}
               type="radio"
@@ -111,7 +117,7 @@ export default function Dashboard(): JSX.Element {
               </svg>
             </label>
           </li>
-          <li className={styles.itemRadio}>
+          <li className={styles.itemRadio}> //4
             <input
             className={styles.input}
               type="radio"
@@ -135,7 +141,7 @@ export default function Dashboard(): JSX.Element {
               </svg>
             </label>
           </li>
-          <li className={styles.itemRadio}>
+          <li className={styles.itemRadio}> //5
             <input
             className={styles.input}
               type="radio"

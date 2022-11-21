@@ -8,7 +8,7 @@ import {
 import styles from "./content.module.scss";
 
 type contentType = {
-  t: any;
+  t: any;  // Лучше использовать типизацию из i18next
 };
 
 export default function Content({ t }: contentType): JSX.Element {
@@ -20,6 +20,13 @@ export default function Content({ t }: contentType): JSX.Element {
     dispatch(fetchInfo());
   }, [dispatch]);
 
+  // 1 - Вынести в отдельный компонент Card
+  // Дальше в зависимости от информации у пользователя отображать разные карточки с помощью map
+  //
+  //
+  //
+  //
+  //
   return (
     <section className={styles.content}>
       <h1 className={styles.title}>
@@ -28,7 +35,7 @@ export default function Content({ t }: contentType): JSX.Element {
       <p className={styles.info}>
         {t("createdAt")} {info.createdTimestamp}
       </p>
-      <ul className={styles.list}>
+      <ul className={styles.list}> // 1
         <li className={styles.item}>
           <h2 className={styles.itemTitle}>{t("email")}</h2>
           <p className={styles.itemInfo}>{info.email}</p>

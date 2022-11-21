@@ -1,8 +1,8 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
-import { format } from "date-fns";
-import { AppDispatch, RootState } from "./store";
-import { PersonType, AuthorizationStatus } from "./types";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
+import {format} from "date-fns";
+import {AppDispatch, RootState} from "./store";
+import {AuthorizationStatus, PersonType} from "./types";
 
 export type State = {
   person: PersonType;
@@ -28,7 +28,7 @@ const appDataSlice = createSlice({
       );
       const phone = action.payload?.phone
         .replace(/\D+/g, "")
-        .replace(/(\d{1})(\d{3})(\d{3})(\d{4})/, "$1($2)$3-$4");
+        .replace(/(\d{1})(\d{3})(\d{3})(\d{4})/, "$1($2)$3-$4"); // Лучше хранить в store в таком виде, а  форматировать при отображении. Так будет проще работать с данными в других местах.
 
       state.person = action.payload;
       state.person.createdTimestamp = time;
@@ -43,7 +43,7 @@ const appDataSlice = createSlice({
   },
 });
 
-export const { loadPerson, authorization, requireLogout } =
+export const {loadPerson, authorization, requireLogout} =
   appDataSlice.actions;
 
 export default appDataSlice.reducer;

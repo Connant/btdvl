@@ -7,7 +7,7 @@ const BACKEND_URL = 'https://api.entsu.ru/';
 const REQUEST_TIMEOUT = 5000;
 
 enum HttpCode {
-  Unauthorized = 401,
+  Unauthorized = 401, // У тебя есть файл с константами, почему бы не вынести туда?
 }
 
 export const createAPI = (onUnauthorized: UnauthorizedCallback): AxiosInstance => {

@@ -20,6 +20,8 @@ export default function App(): JSX.Element {
     }
   }, [auth, navigate]);
 
+
+  // Лучше вынести в отдельный компонент Routing
   return (
     <Routes>
       <Route path={AppRoute.Login} element={<Auth />} />

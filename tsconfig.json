@@ -21,6 +21,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "baseUrl": "src", // Указываетсся для абсолютных путей в импортах (import { Button } from 'components/Button')
     "plugins": [{
       "name": "typescript-plugin-css-modules"
     }]
